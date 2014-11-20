@@ -5,7 +5,7 @@
 	angular.module('pocApp')
 	  .service('xtify', xtifyService);
 
-	function xtifyService() {
+	function xtifyService($q) {
 			var history = Reactor.MessageDetails;
 			var customComparators = null;
 
@@ -15,10 +15,12 @@
 			self.getLastMessages = getLastMessages;
 
 			function getMessageCount () {
-				var visibleMessages = history.getSortedView(["lastReceived"],
-		                                               customComparators,
-		                                      _filterOutDeletedAndExpired);
-		    return visibleMessages.count();
+				return $q(function(resolve, reject) {
+					var visibleMessages = history.getSortedView(["lastReceived"],
+			                                               customComparators,
+			                                      _filterOutDeletedAndExpired);
+			    resolve(visibleMessages.count());
+			  });
 			}
 
 			function getLastMessages(count) {

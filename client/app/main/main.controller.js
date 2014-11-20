@@ -26,14 +26,13 @@ angular.module('pocApp')
 		  }  
 	  ];
 
-	  $scope.refresh = function() {
-	  	$scope.getMessageCount();
-	  	$scope.getLastMessages(5);
-	  }
-
 	  $scope.messageCount = 0;
 	  $scope.getMessageCount = function () {
-	  	$scope.messageCount = xtify.getMessageCount();
+	  	xtify.getMessageCount()
+	  		.then(function (count) {
+	  			$scope.messageCount = count;
+	  			console.log("messagesCount: " + $scope.messageCount);
+	  		});
 	  }
 	  
 
@@ -49,6 +48,11 @@ angular.module('pocApp')
 	  	$scope.refresh();
 	  };
 
+
+	  $scope.refresh = function() {
+	  	$scope.getMessageCount();
+	  	$scope.getLastMessages(5);
+	  }
     $scope.refresh();
 
 		// Reactor.onBeforeMessage(function(messageList){

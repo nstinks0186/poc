@@ -46,6 +46,7 @@ angular.module('pocApp')
 	  $scope.reactorReset = function (argument) {
 	  	xtify.resetEverything();
 	  	$scope.refresh();
+	  	$state.go($state.$current, null, { reload: true });
 	  };
 
 

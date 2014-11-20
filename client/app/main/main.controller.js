@@ -45,6 +45,8 @@ angular.module('pocApp')
 
 	  $scope.reactorReset = function (argument) {
 	  	xtify.resetEverything();
+	  	$scope.selectedMessage = null;
+	  	$scope.receivedDate = null;
 	  	$scope.refresh();
 	  	$state.go($state.$current, null, { reload: true });
 	  };
@@ -55,6 +57,16 @@ angular.module('pocApp')
 	  	$scope.getLastMessages(5);
 	  }
     $scope.refresh();
+
+    $scope.selectMessage = function (msg) {
+    	$scope.selectedMessage = msg;
+    	renderSelectedMessageReceivedDate();
+    }
+
+    $scope.receivedDate = null;
+    function renderSelectedMessageReceivedDate() {
+    	$scope.receivedDate = (new Date($scope.selectedMessage.hist.last)).toString();
+    }
 
 		// Reactor.onBeforeMessage(function(messageList){
 		// 	var messagesToShow = [];

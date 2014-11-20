@@ -32,6 +32,15 @@ angular.module('pocApp')
 	  	alert('The inbox has been cleared. Please reload the page to get the sample notification for first time viewers.');
 	  };
 
+	  $scope.buttonClick = function (argument) {
+	  	try{
+	  		var isMobile = (WL != undefined);
+	  		console.log('Mobile!');
+	  	}catch(e){
+	  		console.log('Desktop!');
+	  	}
+	  }
+
     // $http.get('/api/things').success(function(awesomeThings) {
     //   $scope.awesomeThings = awesomeThings;
     // });

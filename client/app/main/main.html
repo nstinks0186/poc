@@ -3,18 +3,58 @@
 <header class="hero-unit" id="banner">
   <div class="container">
     <h1>Xtify POC</h1>
-    <p class="lead">Proof of Concept for IBM Xtify</p>
-    <img src="http://mediaserver.pulse2.com/wp-content/uploads/2013/10/Xtify-Logo.jpg" alt="Xtify Logo">
   </div>
 </header>
+<br>
 
-<header class="hero-unit" id="banner" style="background-color:#F0F0F0">
-  <div class="container">
+<div class="container">
+  <div class="row">
     <button type="button" class="btn btn-default" ng-click="reactorReset();" href="#">
       <span class="glyphicon glyphicon-remove"></span> Clear Inbox
     </button>
+  </div><br>
+  <div class="row">
+    <button type="button" class="btn btn-default" ng-click="getMessageCount();" href="#">
+      Get Message Count: {{messageCount}}
+    </button>
+  </div><br>
+  <div class="row">
+    <button type="button" class="btn btn-default" ng-click="getLastMessages(5);" href="#">
+      Get Last 5 Messages
+    </button><br>
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="message in messages">{{message.subject}}</li>
+    </ul>
+  </div><br>
+
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Inbox ({{messageCount}})</div>
+    <div class="panel-body">
+      <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-default" ng-click="getLastMessages(5);"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Refresh</button>
+        <button type="button" class="btn btn-default" ng-click="reactorReset();"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Clear Inbox</button>
+      </div>
+    </div>
+
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="message in messages">{{message.subject}}</li>
+    </ul>
   </div>
-</header>
+
+  <!-- <div class="container" ng-repeat="msg in messages">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Notification</h3>
+        <button type="button" class="btn btn-default pull-right" ng-click="reactorReset();" href="#">
+          <span class="glyphicon glyphicon-remove"></span> Clear Inbox
+        </button>
+      </div>
+      <div class="panel-body">
+      </div>
+    </div>
+  </div> -->
+</div>  
 
 <div class="container">
   <br>

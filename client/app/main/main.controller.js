@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pocApp')
-  .controller('MainCtrl', function ($scope, $http, $state) {
+  .controller('MainCtrl', function ($scope, $http, $state, xtify) {
     $scope.awesomeThings = [
 		  {
 		  name : 'Core Events: PAGE_VIEW',
@@ -26,14 +26,46 @@ angular.module('pocApp')
 		  }  
 	  ];
 
+	  $scope.refresh = function() {
+	  	$scope.getMessageCount();
+	  	$scope.getLastMessages(5);
+	  }
+
+	  $scope.messageCount = 0;
+	  $scope.getMessageCount = function () {
+	  	$scope.messageCount = xtify.getMessageCount();
+	  }
+	  
+
+	  $scope.messages = [];
+	  $scope.getLastMessages = function (count) {
+	  	$scope.messages = xtify.getLastMessages(count);
+	  	console.log("messages: " + $scope.messages);
+	  }
+	  
+
 	  $scope.reactorReset = function (argument) {
-	  	console.log('Reactor.reset() initiated ...');	
-	  	Reactor.reset();
-	  	alert('The inbox has been cleared. Please reload the page to get the sample notification for first time viewers.');
+	  	xtify.resetEverything();
+	  	$scope.refresh();
 	  };
 
-    // $http.get('/api/things').success(function(awesomeThings) {
-    //   $scope.awesomeThings = awesomeThings;
-    // });
+    $scope.refresh();
+
+		// Reactor.onBeforeMessage(function(messageList){
+		// 	var messagesToShow = [];
+		// 	for (var i=0; i < messageList.length; i++) {
+		// 		var message = messageList[i];
+		// 		if(true){
+		// 			messagesToShow.push(message);
+		// 			console.log(message);
+
+		// 			$scope.$apply(function () {
+		// 				$scope.message = JSON.stringify(message);
+		// 				$scope.messages.push($scope.message)
+	 //        });
+		// 		}
+		// 	}
+		// 	return messagesToShow;
+		// });
 
   });

@@ -12,4 +12,7 @@ angular.module('pocApp', [
       .otherwise('/');
 
     // $locationProvider.html5Mode(true);
+  })
+  .run(function () {
+    
   });

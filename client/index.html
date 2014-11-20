@@ -48,7 +48,13 @@
     </script -->
 
     <!-- XTIFY -->
-    <script src="http://cdn.xtify.com/reactor/1.5.0/reactor-bundle.min.js" id="reactor-sdk" data-app-key="evblxTVYmC"> </script>
+    <script src="http://cdn.xtify.com/reactor/1.5.0/reactor-bundle.min.js" 
+      id="reactor-sdk" 
+      data-app-key="evblxTVYmC"
+      data-session-time="1"> </script>
+    <!--script src="http://cdn.xtify.com/reactor/1.5.0/reactor-bundle.min.js"> 
+      Reactor.config("appKey", "evblxTVYmC");
+    </script-->
     <script src="http://cdn.xtify.com/reactor/1.5.0/simple-inbox.min.js"> </script>
 
     <!--[if lt IE 9]>
@@ -75,6 +81,7 @@
           <script src="app/main/main.js"></script>
           <script src="app/reactorreset/reactorreset.controller.js"></script>
           <script src="app/reactorreset/reactorreset.js"></script>
+          <script src="app/services/xtify/xtify.service.js"></script>
           <script src="components/modal/modal.service.js"></script>
           <script src="components/navbar/navbar.controller.js"></script>
           <!-- endinjector -->

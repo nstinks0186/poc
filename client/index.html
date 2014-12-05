@@ -10,6 +10,9 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    
+    <link rel="apple-touch-icon" href="https://s3.amazonaws.com/static.tumblr.com/iawroni/Vghn5vfzc/itunesartwork.png">
+
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
@@ -27,6 +30,21 @@
       <!-- endinjector -->
     <!-- endbuild -->
     <link rel="stylesheet" href="css/main.css">
+
+    <!-- 
+      XTIFY 
+        evblxTVYmC
+        evSLjPKhn7
+    -->
+    <script src="js/reactor-bundle.min.js" 
+      id="reactor-sdk" 
+      data-app-key="evSLjPKhn7"
+      data-session-time="1"> </script>
+    <!--script src="http://cdn.xtify.com/reactor/1.5.0/reactor-bundle.min.js"> 
+      Reactor.config("appKey", "evblxTVYmC");
+    </script-->
+    <script src="js/simple-inbox.min.js"> </script>
+
   </head>
   <body ng-app="pocApp">
     <!--[if lt IE 7]>
@@ -46,15 +64,6 @@
       ga('create', 'UA-XXXXX-X');
       ga('send', 'pageview');
     </script -->
-
-    <!-- XTIFY -->
-    <script src="http://cdn.xtify.com/reactor/1.5.0/reactor-bundle.min.js" id="reactor-sdk" data-app-key="evblxTVYmC"> </script>
-    <script src="http://cdn.xtify.com/reactor/1.5.0/simple-inbox.min.js"> </script>
-
-    <!-- Worklight Scripts -->
-    <script src="js/initOptions.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/messages.js"></script>
 
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -80,6 +89,7 @@
           <script src="app/main/main.js"></script>
           <script src="app/reactorreset/reactorreset.controller.js"></script>
           <script src="app/reactorreset/reactorreset.js"></script>
+          <script src="app/services/xtify/xtify.service.js"></script>
           <script src="components/modal/modal.service.js"></script>
           <script src="components/navbar/navbar.controller.js"></script>
           <!-- endinjector -->

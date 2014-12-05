@@ -1,0 +1,9 @@
+{
+  "firebase": "xtify-poc",
+  "public": "dist/public",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
